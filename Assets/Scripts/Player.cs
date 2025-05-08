@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    //Se ejecuta desde evento de animación.
+    //Se ejecuta desde evento de animaciï¿½n.
     private void Attack()
     {
         //Lanzar trigger instantaneo.
@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
     private void Movimiento()
     {
         inputH = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(inputH * velocidadMovimiento, rb.velocity.y);
+        rb.linearVelocity = new Vector2(inputH * velocidadMovimiento, rb.linearVelocity.y);
         if (inputH != 0) //Hay movimiento
         {
             anim.SetBool("Running", true);
