@@ -4,8 +4,12 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
     private float inputH;
+    [Header("Sistema de movimiento")]
+    [SerializeField] private Transform pies;
     [SerializeField] private float velocidadMovimiento;
     [SerializeField] private float fuerzaSalto;
+    [SerializeField] private float distanciaDeteccionSuelo;
+    [SerializeField] private LayerMask queEsSaltable;
 
     [Header("Sistema de combate")]
     [SerializeField] private Transform puntoAtaque;
@@ -54,12 +58,26 @@ public class Player : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && EstoyEnSuelo())
         {
             rb.AddForce(Vector2.up * fuerzaSalto, ForceMode2D.Impulse);
             anim.SetTrigger("Jump");
         }
     }
+
+
+    private bool EstoyEnSuelo()
+    {
+        // Physics2D.Raycast devuelve un RaycastHit2D.
+        // Ese tipo tiene un operador implícito a bool que es true si golpeó algo.
+        return Physics2D.Raycast(
+            pies.position,
+            Vector2.down,
+            distanciaDeteccionSuelo,
+            queEsSaltable
+        );
+    }
+
 
     private void Movimiento()
     {

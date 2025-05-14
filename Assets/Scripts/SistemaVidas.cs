@@ -8,8 +8,8 @@ public class SistemaVidas : MonoBehaviour
     
     public void RecibirDanho(float danhoRecibido)
     {
-        vidas = danhoRecibido;
-        if (vidas <= 0)
+        vidas -= danhoRecibido;
+        if(vidas <= 0)
         {
             Destroy(this.gameObject);
         }
