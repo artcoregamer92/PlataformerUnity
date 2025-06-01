@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: dab9c6681a1492645a0d1e91cfda4a48
+guid: 671dec35c09166c4d96210658d6ee2fe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6916696860828074422
-    second: Fire-Animation-(Actually-Animated)_0
+      213: 2008106361733571671
+    second: movingplataform_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fire-Animation-(Actually-Animated)_0
+      name: movingplataform_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 5
-        width: 19
-        height: 24
+        x: 0
+        y: 0
+        width: 587
+        height: 143
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a4e784fe9d4f200a0800000000000000
-      internalID: -6916696860828074422
+      spriteID: 754e45ab81a3edb10800000000000000
+      internalID: 2008106361733571671
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Fire-Animation-(Actually-Animated)_0: -6916696860828074422
+      movingplataform_0: 2008106361733571671
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

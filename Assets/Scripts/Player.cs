@@ -1,4 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class Player : MonoBehaviour
 {
@@ -17,11 +20,20 @@ public class Player : MonoBehaviour
     [SerializeField] private float danhoAtaque;
     [SerializeField] private LayerMask queEsDanhable;
     private Animator anim;
+
+    [Header("Velocidad")]
+    public float walkSpeed = 5f;
+    float _baseSpeed;
+    Coroutine _resetSpeedCo;
+
+    
     // Start is called before the first frame update
     void Start()
+
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        _baseSpeed = walkSpeed;
     }
 
     // Update is called once per frame
@@ -34,7 +46,22 @@ public class Player : MonoBehaviour
         LanzarAtaque();
     }
 
-    private void LanzarAtaque()
+
+public void ActivarVelocidad(float tiempo, float multiplicador)
+{
+    if (_resetSpeedCo != null) StopCoroutine(_resetSpeedCo);
+    walkSpeed = _baseSpeed * multiplicador;
+    _resetSpeedCo = StartCoroutine(ResetVelocidad(tiempo));
+}
+
+IEnumerator ResetVelocidad(float t)
+{
+    yield return new WaitForSeconds(t);
+    walkSpeed = _baseSpeed;
+}
+
+
+private void LanzarAtaque()
     {
         if (Input.GetMouseButtonDown(0))
         {
